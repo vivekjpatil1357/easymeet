@@ -1,0 +1,94 @@
+<html>
+
+<head>
+    <div id="roomid"></div>
+    <style>
+        body {
+            margin: 0px;
+        }
+
+        #roomid {
+            width: 200px;
+            border-radius: 8px;
+            font-size: 25px;
+            height: 28px;
+            text-align: center;
+            border: 1px solid black;
+            position: absolute;
+            top: 10%;
+            right: 33%;
+        }
+
+        #root {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+    <!-- setting username in frame -->
+    <p id="username" hidden>{{username}}</p>
+    <!-- <p id="link" hidden>{{link}}</p> -->
+    <!-- getting meet url -->
+    <p id="url"></p>
+    <!-- setting roomId -->
+    <p id="roomId" hidden>{{roomId}}</p>
+
+</body>
+<script src="https://unpkg.com/@zegocloud/zego-uikit-prebuilt/zego-uikit-prebuilt.js"></script>
+<script>
+    window.onload = function () {
+        function getUrlParams(url) {
+            let urlStr = url.split('?')[1];
+            const urlSearchParams = new URLSearchParams(urlStr);
+            const result = Object.fromEntries(urlSearchParams.entries());
+            return result;
+        }
+        // Generate a Token by calling a method.
+        // @param 1: appID
+        // @param 2: serverSecret
+        // @param 3: Room ID
+        // @param 4: User ID
+        // @param 5: Username
+        const roomID = document.getElementById('roomId').innerHTML;
+        //|| getUrlParams(window.location.href)['roomID'] ||  (Math.floor(Math.random() * 10000) + "" )
+        const userID = Math.floor(Math.random() * 10000) + "";
+        const userName = document.getElementById('username').innerHTML;
+        const appID = 286626247;
+        const serverSecret = "f0790df09a60505833d252dfebbad4bf";
+        const kitToken = ZegoUIKitPrebuilt.generateKitTokenForTest(appID, serverSecret, roomID, userID, userName);
+
+        document.getElementById('url').innerHTML = window.location.protocol + '//' + window.location.host + window.location.pathname + '?roomID=' + roomID
+        document.getElementById('roomid').innerHTML = "Room Id :" + roomID
+
+        const zp = ZegoUIKitPrebuilt.create(kitToken);
+        zp.joinRoom({
+            container: document.querySelector("#root"),
+            sharedLinks: [{
+                name: 'Personal link',
+                url: window.location.protocol + '//' + window.location.host + window.location.pathname + '?roomID=' + roomID,
+                //url:document.getElementById('link').innerHTML
+            }],
+            scenario: {
+                mode: ZegoUIKitPrebuilt.VideoConference,
+            },
+
+            turnOnMicrophoneWhenJoining: true,
+            turnOnCameraWhenJoining: true,
+            showMyCameraToggleButton: true,
+            showMyMicrophoneToggleButton: true,
+            showAudioVideoSettingsButton: true,
+            showScreenSharingButton: true,
+            showTextChat: true,
+            showUserList: true,
+            maxUsers: 50,
+            layout: "Auto",
+            showLayoutButton: true,
+
+        });
+    }
+</script>
+
+</html>

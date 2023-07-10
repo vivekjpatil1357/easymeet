@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME</title>
+</head>
+
+<body>
+    <a href="{% url 'generate' username %}">generate link</a>
+    <!-- <a>start meet</a> -->
+    <h1>to join meeting </h1>
+    <form id="linkForm" method="post">
+        {% csrf_token %}
+        <input type="text" name="username" value="{{username}}" id="">
+        <input type="text" placeholder="Enter Room Id" name="link" id="roomId">
+        <button type="submit">submit</button>
+    </form>
+    <!-- <p id="link">hello</p> -->
+</body>
+<script></script>
+<!-- <script>
+    document.getElementById("linkForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+        var link = 'https://64a96d20bcf4a104f3b0c096--vcll.netlify.app/?roomID=' + document.getElementById("roomId").value;
+        window.location.href = link;
+    });
+</script> -->
+
+</html>
