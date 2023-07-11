@@ -15,8 +15,11 @@ def login(request):
         username = request.POST.get('username')
         password = request.POST.get('password')
         user = users.objects.get(username=username)
-        if user.password == password:
-            return redirect('home', username)
+        if user is not None:
+            if user.password == password:
+                return redirect('home', username)
+            else :
+                return HttpResponse("password is wrong")
         #     # return render(request, 'vcall/meet.html', {'username': username})
         else:
             return redirect('login')
