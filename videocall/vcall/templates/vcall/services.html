@@ -1,0 +1,143 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+-->
+<!doctype html>
+<html lang="zxx">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Usance a Corporate Category Bootstrap Responsive Website Template| Services :: W3layouts</title>
+  <!-- Template CSS -->
+  <link rel="stylesheet" href="style-starter.css">
+  <!-- Template CSS -->
+  <link href="//fonts.googleapis.com/css?family=Hind:400,500,600,700&display=swap" rel="stylesheet">
+  <!-- Template CSS -->
+
+</head>
+
+<body>
+  <!--/top-header-content-->
+  <div class="template">
+    <header id="site-header" class="fixed-top">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-dark stroke">
+          <a class="navbar-brand" href="index.html">
+            <span><img src="assets/images/logo.png" width="80" height="80"></span> Easy Meets
+          </a>
+          <button class="navbar-toggler bg-gradient" type="button" data-toggle="collapse"
+            data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
+            aria-label="Toggle navigation"><span class="navbar-toggler-icon fa fa-bars"> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link effect-3" href="services.html">Services</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link effect-3" href="pricing.html">Pricing</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link effect-3" href="contact.html">Contact</a>
+              </li>
+            </ul>
+
+          </div>
+        </nav>
+      </div>
+    </header>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <section class="w3l-contact-main">
+    <div class="contact-infhny py-5">
+      <div class="container py-lg-3">
+        <div class="top-map">
+          <div class="map-content-9">
+            <form>
+              <div class="form-top1">
+                <h3 class="hny-title text-center mb-lg-5 mb-4" data-aos="fade-down" Login</h3>
+                  <div class="form-top">
+
+                    <div class="form-top-left" data-aos="fade-up">
+                      <label>Enter Name</label>
+                      <input type="text" name="w3lName" id="w3lName" placeholder="User_Name" required=""><br>
+                      <label>Enter Room ID :</label>
+                      <input type="text" name="w3lSender" id="w3lSender" placeholder="room id" required="">
+
+                      <!-- <input type="submit" name="w3lSubject" id="w3lName" placeholder="sign in" required="">
+                    <input type="submit" name="w3lSubject" id="w3lName" placeholder="register" required=""> -->
+
+                    </div>
+                    <!-- <div class="form-top-righ" data-aos="fade-up">
+                    <textarea name="w3lMessage" id="w3lMessage" placeholder="Message*" required=""></textarea>
+                  </div> -->
+                  </div>
+                  <div class="text-center">
+                    <button type="submit">Submit</button>
+
+
+
+                  </div>
+              </div>
+            </form>
+          </div>
+
+</body>
+
+</html>
+
+<script src="assets/js/jquery-3.3.1.min.js"></script>
+<!-- disable body scroll which navbar is in active -->
+<script>
+  $(function () {
+    $('.navbar-toggler').click(function () {
+      $('body').toggleClass('noscroll');
+    })
+  });
+</script>
+<!--/MENU-JS-->
+<script>
+
+  $(window).on("scroll", function () {
+    var scroll = $(window).scrollTop();
+
+    if (scroll >= 80) {
+      $("#site-header").addClass("nav-fixed");
+    } else {
+      $("#site-header").removeClass("nav-fixed");
+    }
+  });
+
+  //Main navigation Active Class Add Remove
+  $(".navbar-toggler").on("click", function () {
+    $("header").toggleClass("active");
+  });
+  $(document).on("ready", function () {
+    if ($(window).width() > 991) {
+      $("header").removeClass("active");
+    }
+    $(window).on("resize", function () {
+      if ($(window).width() > 991) {
+        $("header").removeClass("active");
+      }
+    });
+  });
+</script>
+<!--//MENU-JS-->
+<!-- /aos -->
+<script src="assets/js/aos.js"></script>
+<script src="assets/js/aosindex.js"></script>
+<!-- //aos -->
+<!-- disable body scroll which navbar is in active -->
+<!-- //jQuery-Photo-filter-lightbox-portfolio-plugin -->
+<script src="assets/js/bootstrap.min.js"></script>

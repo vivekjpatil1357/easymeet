@@ -12,7 +12,7 @@ Author URL: http://w3layouts.com
 	<title>Usance a Corporate Category Bootstrap Responsive Website Template | Home :: W3layouts</title>
 	<!-- Template CSS -->
 	{% load static %}
-	<link rel="stylesheet" href="{% static 'vcall/style-starter.css' %}">
+	<link rel="stylesheet" href="{% static 'vcall/css/style-starter.css' %}">
 	<!-- Template CSS -->
 	<link href="//fonts.googleapis.com/css?family=Hind:400,500,600,700&display=swap" rel="stylesheet">
 	<!-- Template CSS -->
@@ -25,8 +25,8 @@ Author URL: http://w3layouts.com
 		<header id="site-header" class="fixed-top">
 			<div class="container">
 				<nav class="navbar navbar-expand-lg navbar-dark stroke">
-					<a class="navbar-brand" href="index.html">
-						<span ><img src="assets/images/logo.png" alt="logo" height="80" width="80"></span> Easy Meets
+					<a class="navbar-brand" href="{% url 'index' %}">
+						<span><img src="{% static 'vcall/images/logo.png' %}" alt="logo" height="80" width="80"></span> Easy Meets
 					</a>
 					<button class="navbar-toggler bg-gradient" type="button" data-toggle="collapse"
 						data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
@@ -36,12 +36,12 @@ Author URL: http://w3layouts.com
 					<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
 						<ul class="navbar-nav ml-auto">
 							<li class="nav-item active">
-								<a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+								<a class="nav-link" href="{% url 'index'%}">Home <span class="sr-only">(current)</span></a>
 							</li>
 							<li class="nav-item">
 								<a class="nav-link effect-3" href="services.html">Services</a>
 							</li>
-						
+
 							<li class="nav-item">
 								<a class="nav-link effect-3" href="pricing.html">Pricing</a>
 							</li>
@@ -62,7 +62,7 @@ Author URL: http://w3layouts.com
 		<!--/banner-content-->
 		<div class="bannerhny-content text-center">
 			<h3 data-aos="fade-up">Everyone together in <span><br>Easy Meets
-			</span><br>Stay connected and organized</h3>
+				</span><br>Stay connected and organized</h3>
 			<h6 data-aos="fade-up">Click to Join the meeting</h6>
 			<div class="banner-button" data-aos="fade-down">
 				<a href="{% url 'login' %}" class="btn">login</a>
@@ -73,12 +73,12 @@ Author URL: http://w3layouts.com
 	</section>
 	<!-- //w3l-banner-slider-->
 
-	
+
 </body>
 
 </html>
 
-<script src="assets/js/jquery-3.3.1.min.js"></script>
+<script src="{% static 'vcall/js/jquery-3.3.1.min.js' %}"></script>
 <!-- disable body scroll which navbar is in active -->
 
 <!--//-->
@@ -118,8 +118,8 @@ Author URL: http://w3layouts.com
 </script>
 <!--//MENU-JS-->
 <!-- /aos -->
-<script src="assets/js/aos.js"></script>
-<script src="assets/js/aosindex.js"></script>
+<script src="{% static 'vcall/js/aos.js' %}"></script>
+<script src="{% static 'vcall/js/aosindex.js' %}"></script>
 <!-- //aos -->
 
-<script src="assets/js/bootstrap.min.js"></script>
+<script src="{% static 'vcall/js/bootstrap.min.js' %}"></script>
