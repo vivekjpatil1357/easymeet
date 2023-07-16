@@ -24,7 +24,7 @@ def login(request):
         else:
             return redirect('login')
     else:
-        return render(request, 'vcall/login.html')
+        return render(request, 'vcall/contact.html')
 
 
 def user_register(request):
@@ -40,9 +40,9 @@ def user_register(request):
                                  last_name=last_name, email=email, password=password1)
             return redirect('login')
         else:
-            return render(request, 'vcall/user_register.html')
+            return render(request, 'vcall/register.html')
     else:
-        return render(request, 'vcall/user_register.html')
+        return render(request, 'vcall/register.html')
 
 
 def home(request, username):

@@ -11,7 +11,8 @@ Author URL: http://w3layouts.com
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Usance a Corporate Category Bootstrap Responsive Website Template | Contact :: W3layouts</title>
   <!-- Template CSS -->
-  <link rel="stylesheet" href="assets/css/style-starter.css">
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'vcall/css/style-starter.css' %}">
   <!-- Template CSS -->
   <link href="//fonts.googleapis.com/css?family=Hind:400,500,600,700&display=swap" rel="stylesheet">
   <!-- Template CSS -->
@@ -25,7 +26,7 @@ Author URL: http://w3layouts.com
       <div class="container">
         <nav class="navbar navbar-expand-lg navbar-dark stroke">
           <a class="navbar-brand" href="index.html">
-            <span ><img src="assets/images/logo.png" width="80" height="80"></span> Easy Meets
+            <span ><img src="{% static 'vcall/images/logo.png' %}" width="80" height="80"></span> Easy Meets
           </a>
           <button class="navbar-toggler bg-gradient" type="button" data-toggle="collapse"
             data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
@@ -94,8 +95,8 @@ Author URL: http://w3layouts.com
                   </div> -->
                 </div>
                 <div class="text-center">
-                  <button type="submit"><a href=" services.html">sign in</a></button>
-                  <button type="submit"><a href="pricing.html">Register</a></button>
+                  <button type="submit">>sign in</button>
+                  <button type="submit"><a href="{% url 'user_register' %}">Register</a></button>
                   
 
                 </div>
@@ -190,7 +191,7 @@ Author URL: http://w3layouts.com
 </body>
 
 </html>
-<script src="assets/js/jquery-3.3.1.min.js"></script>
+<script src="{% static 'vcall/js/jquery-3.3.1.min.js' %}"></script>
 <!-- disable body scroll which navbar is in active -->
 <script>
   $(function () {
@@ -228,9 +229,9 @@ Author URL: http://w3layouts.com
 </script>
 <!--//MENU-JS-->
 <!-- /aos -->
-<script src="assets/js/aos.js"></script>
-<script src="assets/js/aosindex.js"></script>
+<script src="{% static 'vcall/js/aos.js' %}"></script>
+<script src="{% static 'vcall/js/aosindex.js' %}"></script>
 <!-- //aos -->
 <!-- disable body scroll which navbar is in active -->
 <!-- //jQuery-Photo-filter-lightbox-portfolio-plugin -->
-<script src="assets/js/bootstrap.min.js"></script>
+<script src="{% static 'vcall/js/bootstrap.min.js' %}"></script>
