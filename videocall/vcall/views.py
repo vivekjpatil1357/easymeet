@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect, HttpResponse
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
-from .models import users
-
+from .models import users,history
+from datetime import datetime,time,timedelta
 # Create your views here.
 
 
@@ -18,13 +18,13 @@ def login(request):
         if user is not None:
             if user.password == password:
                 return redirect('home', username)
-            else :
+            else:
                 return HttpResponse("password is wrong")
         #     # return render(request, 'vcall/meet.html', {'username': username})
         else:
             return redirect('login')
     else:
-        return render(request, 'vcall/contact.html')
+        return render(request, 'vcall/login.html')
 
 
 def user_register(request):
@@ -36,29 +36,38 @@ def user_register(request):
         password1 = request.POST.get('password1')
         password2 = request.POST.get('password2')
         if password1 == password2:
-            users.objects.create(username=username, first_name=first_name,
+            user=users.objects.create(username=username, first_name=first_name,
                                  last_name=last_name, email=email, password=password1)
+
             return redirect('login')
         else:
-            return render(request, 'vcall/register.html')
+            return render(request, 'vcall/pricing.html')
     else:
-        return render(request, 'vcall/register.html')
+        return render(request, 'vcall/pricing.html')
 
+def userInfo(request,username):
+    user=users.objects.get(username=username)
+    if user is not None:
+        h=history.objects.filter(user=user)
+       
+        return render(request,'vcall/user_info.html',{'user':user,'list':h})
+    else :
+        return render(request,'vcall/user_info.html',{'error':'error'})
 
 def home(request, username):
     if request.method == 'POST':
         username = request.POST.get('username')
         room_name = request.POST.get('link')
         temp = users.objects.filter(isactive=room_name)
-        if len(temp)!=0:
+        if len(temp) != 0:
             return render(request, 'vcall/meet.html', {'username': username, 'roomId': room_name})
         else:
-            return render(request, 'vcall/home.html', {'username': username})
+            return render(request, 'vcall/services.html', {'username': username,'error':'Meeting is not yet started!! generate one to join'})
     else:
-        exit=users.objects.get(username=username)
-        exit.isactive=''
+        exit = users.objects.get(username=username)
+        exit.isactive = ''
         exit.save()
-        return render(request, 'vcall/home.html', {'username': username})
+        return render(request, 'vcall/services.html', {'username': username})
 
 
 def generate(request, username):
@@ -66,19 +75,43 @@ def generate(request, username):
         username = request.POST.get('username')
         room_name = request.POST.get('link')
         temp = users.objects.filter(isactive=room_name)
-        if len(temp)==0:
-            r=users.objects.get(username=username)
-            r.isactive=room_name
+        if len(temp) == 0:
+            r = users.objects.get(username=username)
+            r.isactive = room_name
             r.save()
+            current_time = datetime.now().time()
+            join_time = current_time.strftime("%H:%M:%S")
+            history.objects.create(user=r,join_time=join_time,meet_name=room_name)
             return render(request, 'vcall/meet.html', {'username': username, 'roomId': room_name})
         else:
-            return render(request, 'vcall/generate.html', {'username': username})
+            return render(request, 'vcall/generate.html', {'username': username,'error':'Name not available!!!'})
     else:
-        exit=users.objects.get(username=username)
-        exit.isactive=''
-        exit.save()
+        exit = users.objects.get(username=username)
+        if exit.isactive != '':
+            exit.isactive = ''
+            exit.save()
+            h=history.objects.last()
+            current_time = datetime.now().time()
+            h.leave_time = str(current_time.strftime("%H:%M:%S"))
+            v=str(h.join_time)
+            time1 = datetime.strptime(v, "%H:%M:%S").time()
+            time2 = datetime.strptime(h.leave_time, "%H:%M:%S").time()
+            current_date = datetime.today().date()
+            datetime1 = datetime.combine(current_date, time1)
+            datetime2 = datetime.combine(current_date, time2)
+            time_diff = datetime2 - datetime1
+            min=format((time_diff.total_seconds()//60),'.0f')
+            sec=format((time_diff.total_seconds()%60),'.0f')
+            final=min+" min"+sec+" sec"
+            h.total_time=str(final)
+            
+            h.save()
+        
         return render(request, 'vcall/generate.html', {'username': username})
 
 
 def meet(request, username, roomId):
+    h=history.objects.last()
+    h.meet_name=roomId
+    h.save()
     return render(request, 'vcall/meet.html', {'username': username, 'roomId': roomId})

@@ -1,76 +1,236 @@
-<!DOCTYPE html>
-<html lang="en">
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+-->
+<!doctype html>
+<html lang="zxx">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login form</title>
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css"
-    integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
-
-  <!-- Optional theme -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap-theme.min.css"
-    integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
-
-  <!-- Latest compiled and minified JavaScript -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js"
-    integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
-    crossorigin="anonymous"></script>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Usance a Corporate Category Bootstrap Responsive Website Template | Contact :: W3layouts</title>
+  <!-- Template CSS -->
   {% load static %}
-  <link rel="stylesheet" href="{% static 'vcall/login.css' %}">
+  <link rel="stylesheet" href="{% static 'vcall/css/style.css' %}">
+  <!-- Template CSS -->
+  <link href="//fonts.googleapis.com/css?family=Hind:400,500,600,700&display=swap" rel="stylesheet">
+  <!-- Template CSS -->
+
 </head>
 
 <body>
-  <center>
-    <h1>Login </h1>
-  </center>
-  <div class="container">
-    <form method="POST" class="form-horizontal">
-      {% csrf_token %}
+  <!--/top-header-content-->
+  <div class="template">
+    <header id="site-header" class="fixed-top">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-dark stroke">
+          <a class="navbar-brand" href="{% url 'index' %}">
+            <span><img src="{% static 'vcall/images/logo.png' %}" alt="logo" height="80" width="80"></span> Easy Meets
+          </a>
+          <button class="navbar-toggler bg-gradient" type="button" data-toggle="collapse"
+            data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
+            aria-label="Toggle navigation"><span class="navbar-toggler-icon fa fa-bars"> </span>
+          </button>
 
-      <div class="form-group">
-        <label for="inputEmail3" class="col-sm-2 control-label">User name</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" id="inputEmail3" placeholder="User name" name="username">
-        </div>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="{% url 'index'%}">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <!-- <li class="nav-item">
+								<a class="nav-link effect-3" href="services.html">Services</a>
+							</li> -->
+
+              <li class="nav-item">
+                <a class="nav-link effect-3" href="{% url 'user_register' %}">Sign-up</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link effect-3" href="{% url 'login' %}">Sign in</a>
+              </li>
+            </ul>
+
+          </div>
+        </nav>
       </div>
-      <div class="form-group">
-        <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
-        <div class="col-sm-10">
-          <input type="password" class="form-control" id="inputPassword3" name="password" placeholder="Password">
-        </div>
+    </header>
+  </div>
+  <!--//top-header-content-->
+
+  <section class="w3l-inner-page-main">
+    <div class="breadcrumb-infhny">
+      <div class="container">
+        <nav aria-label="breadcrumb">
+          <h2 class="hny-title text-center">Login </h2>
+
+        </nav>
       </div>
-      <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-          <div class="checkbox">
-            <label>
-              <input type="checkbox"> Remember me
-            </label>
+    </div>
+  </section>
+
+
+  <!-- /contact-form -->
+  <section class="w3l-contact-main">
+    <div class="contact-infhny py-5">
+      <div class="container py-lg-3">
+        <div class="top-map">
+          <div class="map-content-9">
+            <form method="POST">
+              {% csrf_token %}
+              <div class="form-top1">
+                <h3 class="hny-title text-center mb-lg-5 mb-4" data-aos="fade-down" Login</h3>
+                  <div class="form-top">
+
+                    <div class="form-top-left" data-aos="fade-up">
+                      <label>Enter name</label>
+                      <input type="text" name="username" id="w3lName" placeholder="Name" required=""><br>
+                      <label>enter password</label>
+                      <input type="password" name="password" id="w3lSender" placeholder="password" required="">
+
+                      <!-- <input type="submit" name="w3lSubject" id="w3lName" placeholder="sign in" required="">
+                    <input type="submit" name="w3lSubject" id="w3lName" placeholder="register" required=""> -->
+
+                    </div>
+                    <!-- <div class="form-top-righ" data-aos="fade-up">
+                    <textarea name="w3lMessage" id="w3lMessage" placeholder="Message*" required=""></textarea>
+                  </div> -->
+                  </div>
+                  <div class="text-center">
+                    <button type="submit">sign in</button>
+                    <button type="submit"><a href="{% url 'user_register' %}">Register</a></button>
+                  </div>
+              </div>
+            </form>
+          </div>
+          <div class="cont-details">
+            <div class="cont-top london text-center" data-aos="fade-up">
+              <h6><span class="fa fa-map-marker"></span> Jalgaon Office</h6>
+              <p>3C 64, Mahabal ,Jalgaon, Jalgaon</p>
+              <p><a href="tel:+342 5897555">+342 5897556</a></p>
+              <p><a href="mailto:info@example.com">Home@meet.com</a></p>
+            </div>
+            <div class="cont-top paris text-center" data-aos="fade-up">
+              <h6><span class="fa fa-map-marker"></span> Nashik Office</h6>
+              <p>5c, roongta residencey, vaibhav colony, rajiv nagar, Nashik, Nashik</p>
+              <p><a href="tel:+442 5897555">+442 5897555</a></p>
+              <p><a href="mailto:info@example.com">room@practice.com</a></p>
+            </div>
+            <div class="cont-top newyork text-center" data-aos="fade-up">
+              <h6><span class="fa fa-map-marker"></span> New York Office</h6>
+              <p>80 Maryam Springs Suite 260, Courbevoie, New York, USA</p>
+              <p><a href="tel:+242 5897555">+242 5897554</a></p>
+              <p><a href="mailto:info@example.com">mail@example.com</a></p>
+            </div>
           </div>
         </div>
       </div>
-      <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-          <button type="submit" class="btn btn-default">Sign in</button><button style="margin-left: 5px;" type="submit"
-            class="btn btn-default"><a href="{% url 'user_register' %}">register</a></button>
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
+    </div>
 
-        </div>
-      </div>
+    <div class="map">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2104.482658276745!2d73.7767479896327!3d19.976522514749334!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bddebaead9a4d49%3A0xfd6c10f8929d7902!2sSUMAGO%20INFOTECH%20PVT%20LTD!5e0!3m2!1sen!2sin!4v1689502545500!5m2!1sen!2sin"
+        allowfullscreen=""></iframe>
+    </div>
 
-    </form>
-  </div>
-  <!-- <form method="POST">
-        <input type="text" name="username" placeholder="username" required>
-        <input type="password" name="password" placeholder="password" required>
-        <input type="submit" value="login">
-    </form> -->
-  <!-- <a href="meet.html">go live</a> -->
-  <!-- <a href="https://64a69ee96e0c5715e203fac2--vcalling.netlify.app/">start live</a> -->
+  </section>
+  <!-- //contact-form -->
+
+  <!-- footer -->
+  <footer class="w3l-footer-16">
+    <div class="footer-content py-lg-5 py-4 text-center">
+      <div class="container">
+        <div class="copy-right">
+          <!-- <h6>Made with <span class="fa fa-heart" aria-hidden="true"></span> love Designed by <a -->
+          <!-- href="https://w3layouts.com">W3layouts</a> </h6> -->
+
+          <ul class="footer-gd-16">
+            <li>© 2020 Usance. </li>
+            <li><a href="#">Support</a></li>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Terms</a></li>
+          </ul>
+        </div>
+        <button onclick="topFunction()" id="movetop" title="Go to top">
+          <span class="fa fa-angle-up"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- move top -->
+    <script>
+      // When the user scrolls down 20px from the top of the document, show the button
+      window.onscroll = function () {
+        scrollFunction()
+      };
+
+      function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+          document.getElementById("movetop").style.display = "block";
+        } else {
+          document.getElementById("movetop").style.display = "none";
+        }
+      }
+
+      // When the user clicks on the button, scroll to the top of the document
+      function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      }
+    </script>
+    <!-- //move top -->
+    <script>
+      $(function () {
+        $('.navbar-toggler').click(function () {
+          $('body').toggleClass('noscroll');
+        })
+      });
+    </script>
+  </footer>
+  <!-- //footer -->
 </body>
 
 </html>
+<script src="{% static 'vcall/js/jquery-3.3.1.min.js' %}"></script>
+<!-- disable body scroll which navbar is in active -->
+<script>
+  $(function () {
+    $('.navbar-toggler').click(function () {
+      $('body').toggleClass('noscroll');
+    })
+  });
+</script>
+<!--/MENU-JS-->
+<script>
+  $(window).on("scroll", function () {
+    var scroll = $(window).scrollTop();
+
+    if (scroll >= 80) {
+      $("#site-header").addClass("nav-fixed");
+    } else {
+      $("#site-header").removeClass("nav-fixed");
+    }
+  });
+
+  //Main navigation Active Class Add Remove
+  $(".navbar-toggler").on("click", function () {
+    $("header").toggleClass("active");
+  });
+  $(document).on("ready", function () {
+    if ($(window).width() > 991) {
+      $("header").removeClass("active");
+    }
+    $(window).on("resize", function () {
+      if ($(window).width() > 991) {
+        $("header").removeClass("active");
+      }
+    });
+  });
+</script>
+<!--//MENU-JS-->
+<!-- /aos -->
+<script src="{% static 'vcall/js/aos.js' %}"></script>
+<script src="{% static 'vcall/js/aosindex.js' %}"></script>
+<!-- //aos -->
+<!-- disable body scroll which navbar is in active -->
+<!-- //jQuery-Photo-filter-lightbox-portfolio-plugin -->
+<script src="{% static 'vcall/js/bootstrap.min.js' %}"></script>

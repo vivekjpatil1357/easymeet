@@ -65,12 +65,12 @@
 
         const zp = ZegoUIKitPrebuilt.create(kitToken);
         zp.joinRoom({
-            container: document.querySelector("#root"),
-            sharedLinks: [{
-                name: 'Personal link',
-                url: window.location.protocol + '//' + window.location.host + window.location.pathname + '?roomID=' + roomID,
-                //url:document.getElementById('link').innerHTML
-            }],
+            //container: document.querySelector("#root"),
+            //sharedLinks: [{
+            //    //name: 'Personal link',
+            //    //url: window.location.protocol + '//' + window.location.host + window.location.pathname + '?roomID=' + roomID,
+            //    //url:document.getElementById('link').innerHTML
+            //}],
             scenario: {
                 mode: ZegoUIKitPrebuilt.VideoConference,
             },

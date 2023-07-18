@@ -12,7 +12,7 @@ Author URL: http://w3layouts.com
 	<title>Usance a Corporate Category Bootstrap Responsive Website Template | Home :: W3layouts</title>
 	<!-- Template CSS -->
 	{% load static %}
-	<link rel="stylesheet" href="{% static 'vcall/css/style-starter.css' %}">
+	<link rel="stylesheet" href="{% static 'vcall/css/style.css' %}">
 	<!-- Template CSS -->
 	<link href="//fonts.googleapis.com/css?family=Hind:400,500,600,700&display=swap" rel="stylesheet">
 	<!-- Template CSS -->
@@ -38,15 +38,15 @@ Author URL: http://w3layouts.com
 							<li class="nav-item active">
 								<a class="nav-link" href="{% url 'index'%}">Home <span class="sr-only">(current)</span></a>
 							</li>
-							<li class="nav-item">
+							<!-- <li class="nav-item">
 								<a class="nav-link effect-3" href="services.html">Services</a>
-							</li>
+							</li> -->
 
 							<li class="nav-item">
-								<a class="nav-link effect-3" href="pricing.html">Pricing</a>
+								<a class="nav-link effect-3" href="{% url 'user_register' %}">Sign-up</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link effect-3" href="contact.html">Contact</a>
+								<a class="nav-link effect-3" href="{% url 'login' %}">Sign in</a>
 							</li>
 						</ul>
 
@@ -66,7 +66,7 @@ Author URL: http://w3layouts.com
 			<!-- <h6 data-aos="fade-up">Click to Join the meeting</h6> -->
 			<div class="banner-button" data-aos="fade-down">
 				<a href="{% url 'login' %}" class="btn">login</a>
-				<a href="register.html" class="btn">Register</a>
+				<a href="{% url 'user_register' %}" class="btn">Register</a>
 			</div>
 		</div>
 		<!--//banner-content-->
