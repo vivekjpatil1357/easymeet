@@ -40,13 +40,16 @@ def user_register(request):
         password1 = request.POST.get('password1')
         password2 = request.POST.get('password2')
         if password1 == password2:
-            user = users.objects.create(username=username, first_name=first_name,
+            try:
+                user = users.objects.create(username=username, first_name=first_name,
                                         last_name=last_name, email=email, password=password1)
+            except:
+                return render(request,'vcall/pricing.html',{'error':'Username already exist'})
 
             return redirect('login')
         else:
-            return HttpResponse("passwords not matching!!!!")
-            # return redirect('user_register',{'error':'passwords not matching '})
+            
+            return render(request,'vcall/pricing.html',{'error':'passwords not matching '})
     else:
         return render(request, 'vcall/pricing.html')
 

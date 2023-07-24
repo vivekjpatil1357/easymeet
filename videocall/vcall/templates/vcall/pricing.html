@@ -67,6 +67,7 @@ Author URL: http://w3layouts.com
 						<form method="POST">
 							{% csrf_token %}
 							<div class="form-top1">
+								<h1 style="color:  rgb(255, 42, 42);">!!{{error}}!!</h1>
 
 
 								<label for="exampleInputEmail1">User name</label>
@@ -95,7 +96,6 @@ Author URL: http://w3layouts.com
 								<input type="password" class="form-control" id="exampleInputPassword1"
 									placeholder="enter again" name="password2" required>
 
-								<label for="">{{error}}</label>
 
 
 							</div>
