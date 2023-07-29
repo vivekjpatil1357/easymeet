@@ -66,4 +66,4 @@ The meeting history table will have the following columns:
 
 ## Contributing
 
-We welcome contributions to improve the VideoCalling App. If you find any issues or want to suggest new features
+We welcome contributions to improve the VideoCalling App. If you find any issues or want to suggest new features, please open an issue or submit a pull request in the repository.
