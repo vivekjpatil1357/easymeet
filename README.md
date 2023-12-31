@@ -32,7 +32,7 @@ The VideoCalling App is a web-based application that enables users to connect wi
 
 ## Getting Started
 
-To use the VideoCalling App, visit [easymeet.pythonanywhere.com](http://easymeet.pythonanywhere.com) and follow these steps:
+To use the VideoCalling App, download project - run command:py manage.py runserver then follow these steps:
 
 1. **Login:** Launch the app and sign in using your registered email and password.
 
